@@ -22,5 +22,14 @@ class Estudiante:
     def calcular_suma(self) -> float:
         return self.nota1 + self.nota2 + self.nota3
 
+    UMBRAL_APROBACION = 24.0
+    UMBRAL_SUPLETORIO = 18.0
+
     def obtener_estado(self) -> str:
-        return "APROBADO" if self.calcular_suma() >= self.UMBRAL_APROBACION else "REPROBADO"
+        suma = self.calcular_suma()
+        if suma >= self.UMBRAL_APROBACION:
+            return "APROBADO"
+        elif suma >= self.UMBRAL_SUPLETORIO:
+            return "SUPLETORIO"
+        else:
+            return "REPROBADO"

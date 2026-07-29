@@ -30,3 +30,7 @@ def test_registro_y_busqueda_gestor():
     busqueda = gestor.buscar_estudiante("Carlos")
     assert len(busqueda) == 1
     assert busqueda[0].nombre == "Carlos"
+    
+def test_estado_supletorio():
+    est = Estudiante("Luis", 6, 6, 6) # Suma = 18
+    assert est.obtener_estado() == "SUPLETORIO"
